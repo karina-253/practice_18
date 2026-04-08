@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def decorator(func):
     """
     A decorator that displays the result of a function,
@@ -10,12 +13,11 @@ def decorator(func):
         wrapper: Wrapper function
     """
 
-    def wrapper(param):
+    def wrapper(param: Any) -> Any:
         result = func(param)
         print(f"{func.__name__}({param}) = {result}")
         return result
     return wrapper
-
 
 #Example
 @decorator
