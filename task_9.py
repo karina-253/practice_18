@@ -78,7 +78,7 @@ def get_xml(input_data: Any, name: str) -> str:
     root = create_xml(name, input_data)
     return ET.tostring(root, encoding='unicode', method='xml')
 
-
+#Examples
 @formatting("xml")
 def get_book():
     return {
@@ -89,4 +89,39 @@ def get_book():
         }
     }
 
+@formatting("json")
+def get_flowers():
+    return {
+        "quantity": 19,
+        "type": "Лилии",
+        "price": 7777,
+        "color": "белые"
+    }
+
+@formatting("yaml")
+def get_restaurant_menu():
+    return {
+        "ресторан": "Уютное кафе",
+        "адрес": "ул.Ленина, 15",
+        "телефон": "+7(999)123-45-67",
+        "меню": {
+            "супы": [
+                {"название": "Борщ", "цена": 250, "вес": 300},
+                {"название": "Солянка", "цена": 270, "вес": 300},
+            ],
+            "горячее": [
+                {"название": "Паста Карбонара", "цена": 420, "вес": 300},
+                {"название": "Рис с овощами", "цена": 320, "вес": 250}
+            ],
+        }
+    }
+
+
+print("Пример 1: XML")
 print(get_book())
+
+print("Пример 2: JSON")
+print(get_flowers())
+
+print("Пример 3: YAML")
+print(get_restaurant_menu())
